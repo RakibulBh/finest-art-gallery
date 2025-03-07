@@ -1,0 +1,62 @@
+# Global ignores
+.DS_Store
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs and debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+.vercel/
+out/
+.cache/
+
+# Go specific
+**/*.exe
+**/*.exe~
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.test
+**/*.out
+vendor/
+
+# Go modules and dependencies
+/go/bin/
+/go/pkg/
+/go/src/
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.log
+*.tmp
+*.pid
+*.seed
+*.old
+*.swp
+
+# Coverage and test files
+*.cover
+*.cov
+*.prof
+coverage/
+cover.out
+
+testdata/
