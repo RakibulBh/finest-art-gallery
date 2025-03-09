@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/feature/s3/manager"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/google/uuid"
 	"github.com/sashabaranov/go-openai"
 )
 
@@ -75,9 +76,11 @@ func generateImage(prompt string) (*bytes.Reader, error) {
 func uploadToS3(reader *bytes.Reader) error {
 	uploader := manager.NewUploader(s3Client)
 
+	filename := uuid.New()
+
 	_, err := uploader.Upload(context.TODO(), &s3.PutObjectInput{
 		Bucket: aws.String("leonardodagpt"),
-		Key:    aws.String("generated_images/generated.png"),
+		Key:    aws.String(fmt.Sprintf("generated_images/%s.png", filename)),
 		Body:   reader,
 	})
 

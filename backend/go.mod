@@ -25,6 +25,7 @@ require (
 	github.com/aws/smithy-go v1.22.2 // indirect
 	github.com/go-chi/chi/v5 v5.2.1 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect

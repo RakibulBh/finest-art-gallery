@@ -28,6 +28,8 @@ func main() {
 
 	s3Client = s3.NewFromConfig(cfg)
 
+	submissionHandler := SubmissionHandler{}
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
@@ -36,8 +38,9 @@ func main() {
 		w.Write([]byte("OK"))
 	})
 
-	submissionHandler := SubmissionHandler{}
-	r.Post("/generate", submissionHandler.GenerateAndUploadImage)
+	r.Route("/", func(r chi.Router) {
+		r.Post("/generate", submissionHandler.GenerateAndUploadImage)
+	})
 
 	// Listen
 	http.ListenAndServe(":8080", r)
