@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Oswald } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const oswald = Oswald({
   subsets: ["latin"],
+  weight: ["400", "700", "600"], // Choose the weights you need
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "The Gallery of Fame",
-  description: "View a collection of pure art.",
+  description: "View a collection of pure art, definitely not by AI.",
 };
 
 export default function RootLayout({
@@ -24,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${oswald.className} antialiased`}>{children}</body>
     </html>
   );
 }
